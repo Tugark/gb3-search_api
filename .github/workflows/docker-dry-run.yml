@@ -1,9 +1,10 @@
-name: Docker Dry Run
+name: Dry Run
 
 on: workflow_call
 
 jobs:
   dry-run:
+    name: Dry Run
     runs-on: ubuntu-latest
     steps:
       - name: Set up Docker Buildx

@@ -1,0 +1,16 @@
+name: Dry Run
+
+on: workflow_call
+
+jobs:
+  dry-run:
+    name: Dry Run
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          push: false
+          tags: gb3-search-api:latest

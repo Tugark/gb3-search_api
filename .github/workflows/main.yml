@@ -1,0 +1,22 @@
+name: Ensure build and test quality for main and develop
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  python:
+    name: Python
+    uses: ./.github/workflows/python-tests.yml
+
+  docker:
+    name: Docker
+    uses: ./.github/workflows/docker-dry-run.yml
+
+    # todo: sonar analysis
